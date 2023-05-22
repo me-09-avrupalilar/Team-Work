@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  background-color: black;
+  text-align: center;
+}
+
+#par {
+  color: white;
+  font-size: 40px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}

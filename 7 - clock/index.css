@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    background-color: chartreuse;
+    text-align: center;
+}
+
+body{
+   font-size: 2rem;
+   display: flex;
+   flex: 1;
+   min-height: 100vh;
+   align-items: center;
+}
+
+.clock{
+    border: 20px solid white;
+    width: 30rem;
+    height: 30rem;
+    border-radius: 50%;
+    margin:50px auto;
+    position: relative;
+    padding: 2rem;
+}
+.clock-div{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-3px);
+}
+.hand{
+    position: absolute;
+    top: 35%;
+    background-color: black;
+    width: 50%;
+    height: 6px;
+    margin-top: 35px;
+    transform-origin: 100%;
+    transform:rotate(90deg);
+    transition: all 0.05s ; 
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}

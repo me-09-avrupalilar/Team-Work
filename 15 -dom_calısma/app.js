@@ -22,7 +22,7 @@ ekleBtn.onclick = function (){
         alert("lütfen bir dil giriniz")
     }else{
         ul.innerHTML += `<li>${input.value}</li> `
-        control()
+
         input.value=""
         input.focus()
     }

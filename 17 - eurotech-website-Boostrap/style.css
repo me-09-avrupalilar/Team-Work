@@ -1,0 +1,106 @@
+.navbar-nav a {
+    color: white !important;
+    opacity: 0.5;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+}
+
+.navbar {
+    opacity: 0.9;
+
+}
+
+span {
+    color: white !important;
+}
+
+.navbar-toggler {
+    color: grey !important;
+}
+
+.header {
+    background: url(./lib/img/pexels-laura-tancredi-7078666.jpg) center center no-repeat;
+    /* center center kullanimi imagei ortaliyor. 
+    no-repeat gorseli tekrak baslamasini onluyor. */
+    background-size: cover;
+    height: 100vh;
+    color: white;
+    padding-top: 20%;
+    padding-bottom: 20%;
+}
+
+.header h3,
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 900;
+}
+
+.fa-solid:hover,
+.fas:hover {
+    /* transform: rotate(180deg); */
+    /* transform: skew(20deg, -10deg); */
+    /* transform: scale(1.1);
+     */
+    width: 140px;
+    height: 127px;
+    background-color: coral;
+    scale: 1 1;
+    animation: mymove 3s infinite;
+
+}
+
+@keyframes mymove {
+    50% {
+        rotate: y 180deg;
+    }
+}
+
+.portfolio,
+.our-team {
+    /* background-color: #f8f9fa; */
+    background-color: #e1e5e9;
+
+}
+
+.portfolio .main-text {
+    font-size: 1.5rem;
+}
+
+.card img {
+    object-fit: cover;
+}
+
+.about-us-img {
+    margin: auto auto;
+    width: 100%;
+    min-width: 300px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2rem;
+
+}
+
+.text-start {
+    margin: auto;
+    font-size: 1.1rem;
+}
+
+.our-team-text {
+    font-size: 1.2rem;
+    padding-left: 8rem;
+    padding-right: 8rem;
+}
+
+.social {
+    border-radius: 50% !important;
+}
+
+.contact-us {
+    background: url(./lib/img/image\ \(5\).png) center center no-repeat;
+    background-size: cover;
+}
+
+

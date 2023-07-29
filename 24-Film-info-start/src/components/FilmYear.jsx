@@ -3,19 +3,14 @@ import { data } from "../helper/data";
 import { useState } from "react";
 import FilmInfo from "./FilmInfo";
 
-const FilmYear = ({data}) => {
-
-  
-  // console.log(data);
-
+const FilmYear = ({ data }) => {
   const handleClick = () => {};
   // js alani
-  // console.log(data)
+
   return (
     // jsx alani
     <div>
       {data.map((item) => {
-        
         return (
           <button
             onClick={handleClick}

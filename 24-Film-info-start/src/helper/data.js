@@ -4,13 +4,7 @@ export const data = [
     title: "Puss in Boots: The Last Wish",
     body: "Puss in Boots discovers that his passion for adventure has taken its toll: He has burned through eight of his nine lives, leaving him with only one life left. Puss sets out on an epic journey to find the mythical Last Wish and restore his nine lives.",
     rate: 8.611,
-    tags: [
-      "Animation",
-      "Adventure",
-      "Comedy",
-      "Family",
-      "Fantasy",
-    ],
+    tags: ["Animation", "Adventure", "Comedy", "Family", "Fantasy"],
     date: 2022,
   },
   {
@@ -18,7 +12,7 @@ export const data = [
     title: "Avatar",
     body: "In the 22nd century, a paraplegic Marine is dispatched to the moon Pandora on a unique mission, but becomes torn between following orders and protecting an alien civilization.",
     rate: 7.564,
-    tags: ["Action","Adventure","Fantasy","Sci - Fi"],
+    tags: ["Action", "Adventure", "Fantasy", "Sci - Fi"],
     date: 2009,
   },
   {

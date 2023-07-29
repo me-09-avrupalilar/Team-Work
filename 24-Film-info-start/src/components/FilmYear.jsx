@@ -1,9 +1,17 @@
-import React from 'react'
+import React from "react";
+import { data } from "../helper/data";
 
-const FilmYear = () => {
+const FilmYear = ({ data }) => {
+  // js alani
+  // console.log(data)
   return (
-    <div>FilmYear</div>
-  )
-}
+    // jsx alani
+    <div>
+      {data.map((item) => {
+        return <ul>{item.date}</ul>;
+      })}
+    </div>
+  );
+};
 
-export default FilmYear
+export default FilmYear;

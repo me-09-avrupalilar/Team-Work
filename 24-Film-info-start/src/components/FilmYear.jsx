@@ -8,7 +8,11 @@ const FilmYear = ({ data }) => {
     // jsx alani
     <div>
       {data.map((item) => {
-        return <ul>{item.date}</ul>;
+        return (
+          <button className="border-0 px-2 m-2 fs-4 fw-bold text-secondary">
+            {item.date}
+          </button>
+        );
       })}
     </div>
   );

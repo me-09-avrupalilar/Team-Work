@@ -11,7 +11,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Formik } from "formik";
-import registerSchema from "../validation/validation";
+import { registerSchema } from "../validation/validation";
 
 // TODO remove, this demo shouldn't need to reset the theme.
 
@@ -58,7 +58,7 @@ export default function Register() {
 
             <Formik
               initialValues={{
-                username: "",
+                userName: "",
                 firstName: "",
                 lastName: "",
                 email: "",
@@ -87,9 +87,9 @@ export default function Register() {
                     name="userName"
                     autoFocus
                     onChange={handleChange}
-                    value={values.username}
-                    error={touched.username && Boolean(errors.username)}
-                    helperText={touched.username && errors.username}
+                    value={values.userName}
+                    error={touched.userName && Boolean(errors.userName)}
+                    helperText={touched.userName && errors.userName}
                     onBlur={handleBlur}
                   />
                   <TextField

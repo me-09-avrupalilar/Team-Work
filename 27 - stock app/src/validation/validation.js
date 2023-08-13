@@ -18,8 +18,7 @@ const loginSchema = object({
 });
 
 export const registerSchema = object({
-
-  username: string().required(),
+  userName: string().required(),
   firstName: string().required(),
   lastName: string().required(),
   email: string().email().required(),

@@ -16,9 +16,10 @@ const useAuth = () => {
             toastError("Login failed!")
         }
     }
+
     const register = async (userData) => {
         try {
-            const {data} = await axios.post("https://14184.fullstack.clarusway.com/account/register/", userData )
+            const {data} = await axios.post("http://14184.fullstack.clarusway.com/account/register/", userData )
             console.log(data)
             toastSuccess("You have succesfully registered")
 

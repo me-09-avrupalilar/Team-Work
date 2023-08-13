@@ -14,12 +14,13 @@ import { Formik } from "formik";
 import { registerSchema } from "../validation/validation";
 import useAuth from "../hooks/useAuth";
 
+
 // TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();
 
 export default function Register() {
-  
+  const {register} = useAuth()
   return (
     <ThemeProvider theme={defaultTheme}>
       <Grid container component="main" sx={{ height: "100vh" }}>
@@ -68,9 +69,10 @@ export default function Register() {
                 password2: "",
               }}
               validationSchema={registerSchema}
-              onSubmit={(values, bag) => {
-                console.log(values);
-                bag.resetForm();
+              onSubmit={(values, action) => {
+                action.resetForm();
+                register(values)
+
               }}
             >
               {({
@@ -101,7 +103,7 @@ export default function Register() {
                     id="firstname"
                     label="First Name"
                     name="first_name"
-                    autoFocus
+              
                     onChange={handleChange}
                     value={values.first_name}
                     error={touched.first_name && Boolean(errors.first_name)}
@@ -149,7 +151,7 @@ export default function Register() {
                     margin="normal"
                     fullWidth
                     name="password2"
-                    label="Password"
+                    label="Confirm Password"
                     type="password"
                     id="password"
                     onChange={handleChange}

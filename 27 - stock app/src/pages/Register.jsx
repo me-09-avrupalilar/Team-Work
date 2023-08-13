@@ -12,12 +12,14 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Formik } from "formik";
 import { registerSchema } from "../validation/validation";
+import useAuth from "../hooks/useAuth";
 
 // TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();
 
 export default function Register() {
+  
   return (
     <ThemeProvider theme={defaultTheme}>
       <Grid container component="main" sx={{ height: "100vh" }}>
@@ -58,11 +60,12 @@ export default function Register() {
 
             <Formik
               initialValues={{
-                userName: "",
-                firstName: "",
-                lastName: "",
+                username: "",
+                first_name: "",
+                last_name: "",
                 email: "",
                 password: "",
+                password2: "",
               }}
               validationSchema={registerSchema}
               onSubmit={(values, bag) => {
@@ -84,12 +87,12 @@ export default function Register() {
                     fullWidth
                     id="username"
                     label="User name"
-                    name="userName"
+                    name="username"
                     autoFocus
                     onChange={handleChange}
-                    value={values.userName}
-                    error={touched.userName && Boolean(errors.userName)}
-                    helperText={touched.userName && errors.userName}
+                    value={values.username}
+                    error={touched.username && Boolean(errors.username)}
+                    helperText={touched.username && errors.username}
                     onBlur={handleBlur}
                   />
                   <TextField
@@ -97,12 +100,12 @@ export default function Register() {
                     fullWidth
                     id="firstname"
                     label="First Name"
-                    name="firstName"
+                    name="first_name"
                     autoFocus
                     onChange={handleChange}
-                    value={values.firstName}
-                    error={touched.firstName && Boolean(errors.firstName)}
-                    helperText={touched.firstName && errors.firstName}
+                    value={values.first_name}
+                    error={touched.first_name && Boolean(errors.first_name)}
+                    helperText={touched.first_name && errors.first_name}
                     onBlur={handleBlur}
                   />
                   <TextField
@@ -110,11 +113,11 @@ export default function Register() {
                     fullWidth
                     id="lastname"
                     label="Last Name"
-                    name="lastName"
+                    name="last_name"
                     onChange={handleChange}
-                    value={values.lastName}
-                    error={touched.lastName && Boolean(errors.lastName)}
-                    helperText={touched.lastName && errors.lastName}
+                    value={values.last_name}
+                    error={touched.last_name && Boolean(errors.last_name)}
+                    helperText={touched.last_name && errors.last_name}
                     onBlur={handleBlur}
                   />
                   <TextField
@@ -140,6 +143,19 @@ export default function Register() {
                     value={values.password}
                     error={touched.password && Boolean(errors.password)}
                     helperText={touched.password && errors.password}
+                    onBlur={handleBlur}
+                  />
+                  <TextField
+                    margin="normal"
+                    fullWidth
+                    name="password2"
+                    label="Password"
+                    type="password"
+                    id="password"
+                    onChange={handleChange}
+                    value={values.password2}
+                    error={touched.password2 && Boolean(errors.password2)}
+                    helperText={touched.password2 && errors.password2}
                     onBlur={handleBlur}
                   />
                   <Button

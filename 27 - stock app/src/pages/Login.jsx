@@ -12,12 +12,15 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Formik } from "formik";
 import loginSchema from "../validation/validation"
+import useAuth from "../hooks/useAuth";
 
 // TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();
 
 export default function Login() {
+  
+  const {login} = useAuth()
   
 
   return (
@@ -61,9 +64,10 @@ export default function Login() {
             <Formik
               initialValues={{ email: "", password: "" }}
               validationSchema={loginSchema}
-              onSubmit={(values, bag) => {
+              onSubmit={(values, action) => {
                 console.log(values);
-                bag.resetForm();
+                login(values);
+                action.resetForm();
               }}
             >
               {({

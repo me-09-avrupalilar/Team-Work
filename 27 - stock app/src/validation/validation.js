@@ -12,7 +12,7 @@ const loginSchema = object({
     .matches(/[A-Z]/, "password must at least contain one uppercase")
     .matches(/[a-z]/, "password must at least contain one lowercase")
     .matches(
-      /[!,?{}><%&$#£+-.]+/,
+      /[!,?{}><%&$#£+-.@]+/,
       "password must at least contain one special character"
     )
 });
@@ -30,7 +30,7 @@ export const registerSchema = object({
     .matches(/[A-Z]/, "password must at least contain one uppercase")
     .matches(/[a-z]/, "password must at least contain one lowercase")
     .matches(
-      /[!,?{}><%&$#£+-.]+/,
+      /[!,?{}><%&$#£+-.@]+/,
       "password must at least contain one special character"
     ),
 });

@@ -13,8 +13,12 @@ import LocationCityIcon from "@mui/icons-material/LocationCity";
 import AppleIcon from "@mui/icons-material/Apple";
 import InventoryIcon from "@mui/icons-material/Inventory";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
+import { useNavigate } from 'react-router-dom';
 
 const MenuItems = () => {
+
+    const navigate = useNavigate();
+
     const menuItem = [
       {
         icon: <GridViewIcon />,
@@ -57,7 +61,7 @@ const MenuItems = () => {
       <List>
         {menuItem.map((item, index) => (
           <ListItem key={index} disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={ () => {navigate(item.path)}}>
               <ListItemIcon>
                 {item.icon}
                 

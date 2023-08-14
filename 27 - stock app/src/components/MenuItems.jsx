@@ -53,7 +53,7 @@ const MenuItems = () => {
       {
         icon: <AdminPanelSettingsIcon />,
         title: "Admin Panel",
-        path: "/stock/products",
+        path: "https://14184.fullstack.clarusway.com/admin",
       },
     ];
   return (
@@ -61,7 +61,9 @@ const MenuItems = () => {
       <List>
         {menuItem.map((item, index) => (
           <ListItem key={index} disablePadding>
-            <ListItemButton onClick={ () => {navigate(item.path)}}>
+            <ListItemButton onClick={ () => {
+                item.path.includes("http" || "www") ? window.open(item.path, "_blank") :  
+                navigate(item.path)}}>
               <ListItemIcon>
                 {item.icon}
                 
@@ -76,4 +78,4 @@ const MenuItems = () => {
   );
 }
 
-export default MenuItems
+export default MenuItems 

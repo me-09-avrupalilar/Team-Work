@@ -9,6 +9,10 @@ import MailIcon from "@mui/icons-material/Mail";
 import GridViewIcon from '@mui/icons-material/GridView';
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import LocationCityIcon from "@mui/icons-material/LocationCity";
+import AppleIcon from "@mui/icons-material/Apple";
+import InventoryIcon from "@mui/icons-material/Inventory";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 
 const MenuItems = () => {
     const menuItem = [
@@ -26,6 +30,26 @@ const MenuItems = () => {
         icon: <MonetizationOnIcon />,
         title: "Sales",
         path: "/stock/sales",
+      },
+      {
+        icon: <LocationCityIcon />,
+        title: "Firms",
+        path: "/stock/firms",
+      },
+      {
+        icon: <AppleIcon />,
+        title: "Brands",
+        path: "/stock/brands",
+      },
+      {
+        icon: <InventoryIcon />,
+        title: "Products",
+        path: "/stock/products",
+      },
+      {
+        icon: <AdminPanelSettingsIcon />,
+        title: "Admin Panel",
+        path: "/stock/products",
       },
     ];
   return (

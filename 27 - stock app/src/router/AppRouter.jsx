@@ -9,6 +9,7 @@ import Firms from "../pages/Firms"
 import Brands from "../pages/Brands";
 import Products from "../pages/Products";
 import Sales from "../pages/Sales";
+import Home from "../pages/Home";
 
 const AppRouter = () => {
   return (
@@ -17,7 +18,8 @@ const AppRouter = () => {
         <Route path="/login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="stock" element={<PrivateRouter />}>
-          <Route path="" element={<Dashboard />}>
+          <Route path="" element={<Home />}>
+            <Route index element={<Dashboard />}/>
             <Route path="purchases" element={<Purchases />}/>
             <Route path="sales" element={<Sales />}/>
             <Route path="firms" element={<Firms />}/>

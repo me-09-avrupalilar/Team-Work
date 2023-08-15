@@ -14,24 +14,23 @@ export const stockSlice = createSlice({
   name: "stock",
   initialState,
   reducers: {
-   fetchStart: (state) => {
-    state.loading = true;
-    state.error = false;
-   },
-   getFirmSuccess: (state, {payload}) => {
-     state.loading = true;
-     state.error = false;
-     state.firms = payload;
-   },
-   getFirmFail: (state) => {
-        state.loading = false;
-        state.error = true;
-   }
- 
+    fetchStart: (state) => {
+      state.loading = true;
+      state.error = false;
+    },
+    getSuccess: (state, { payload: { stockName, data } }) => {
+      state.loading = true;
+      state.error = false;
+      state[stockName] = data;
+    },
+    fetchFail: (state) => {
+      state.loading = false;
+      state.error = true;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { fetchStart, getFirmSuccess, getFirmFail } = stockSlice.actions;
+export const { fetchStart, getSuccess, fetchFail } = stockSlice.actions;
 
 export default stockSlice.reducer;

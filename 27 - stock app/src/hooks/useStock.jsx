@@ -1,30 +1,33 @@
 import axios from "axios";
 import {
   fetchStart,
-  getFirmFail,
-  getFirmSuccess,
+  fetchFail,
+  getSuccess,
 } from "../features/stockSlice";
 import { useDispatch, useSelector } from "react-redux";
+
 
 
 
 const useStock = () => {
      const dispatch = useDispatch();
        const { token } = useSelector((state) => state.auth);
-  const getFirms = async () => {
+  const getStocks = async (stockName) => {
+
     dispatch(fetchStart());
     try {
       const { data } = await axios.get(
-        "http://14184.fullstack.clarusway.com/stock/firms/",
+
+        `http://14184.fullstack.clarusway.com/stock/${stockName}`,
         { headers: { Authorization: `Token ${token}` } }
       );
-      dispatch(getFirmSuccess(data));
+      dispatch(getSuccess({stockName, data}));
     } catch (error) {
       console.log(error);
-      dispatch(getFirmFail());
+      dispatch(fetchFail());
     }
   };
-  return { getFirms };
+  return { getStocks };
 };
 
 export default useStock;

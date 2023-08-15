@@ -7,12 +7,14 @@ import useStock from '../hooks/useStock'
 
 const Firms = () => {
    
-   const {getFirms} = useStock()
+   const {getStocks} = useStock()
+
+
     
 
 
     useEffect(() => {
-         getFirms();
+         getStocks("firms");
     }, [])
     const {firms} = useSelector((state) => state.stock) 
     console.log(firms)

@@ -21,7 +21,7 @@ export const stockSlice = createSlice({
    getFirmSuccess: (state, {payload}) => {
      state.loading = true;
      state.error = false;
-     state.firms = payload.data;
+     state.firms = payload;
    },
    getFirmFail: (state) => {
         state.loading = false;

@@ -1,22 +1,21 @@
-import React from 'react'
+import { useEffect } from 'react'
 import {Typography, Button} from "@mui/material"
 import {useSelector} from "react-redux"
-import axios from "axios"
+import useStock from '../hooks/useStock'
+
 
 
 const Firms = () => {
-    const {token} = useSelector((state) => state.auth)
-    const getFirms = async () => {
-        try {
-            const {data} = await axios.get("http://14184.fullstack.clarusway.com/stock/firms/", {headers: {Authorization: `Token ${token}`}})
-            console.log(data)
+   
+   const {getFirms} = useStock()
+    
 
-        } catch (error) {
-            console.log(error)
-        }
-    }
 
-    getFirms()
+    useEffect(() => {
+         getFirms();
+    }, [])
+    const {firms} = useSelector((state) => state.stock) 
+    console.log(firms)
   return (
     <>
       <Typography variant="h3" color="red">

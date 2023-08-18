@@ -1,9 +1,12 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import {Typography, Button} from "@mui/material"
 import {useSelector} from "react-redux"
 import useStock from '../hooks/useStock'
 import {Grid} from '@mui/material'
 import FirmCard from "../components/FirmCard"
+import FirmModal from '../components/FirmModal'
+
+
 
 
 
@@ -11,6 +14,7 @@ import FirmCard from "../components/FirmCard"
 const Firms = () => {
    
    const {getStocks} = useStock()
+    const [open, setOpen] = useState(false);
 
 
     
@@ -26,19 +30,17 @@ const Firms = () => {
       <Typography variant="h3" color="red">
         Firms
       </Typography>
-      <Button variant="contained" sx={{backgroundColor: "darkblue"}}>Add Firm</Button>
-
+      <Button variant="contained" sx={{ backgroundColor: "darkblue" }} onClick={ () => setOpen(true)}>
+        Add Firm
+      </Button>
+      <FirmModal setOpen={setOpen} open={open} />
       <Grid container gap={5} mt={5}>
-        { firms?.map((firm) => (
+        {firms?.map((firm) => (
           <Grid key={firm.id}>
-            <FirmCard firm={firm}/>
+            <FirmCard firm={firm} />
           </Grid>
-          
         ))}
       </Grid>
-      
-
-
     </>
   );
 }

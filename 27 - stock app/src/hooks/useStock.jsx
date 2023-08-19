@@ -6,6 +6,7 @@ import {
 } from "../features/stockSlice";
 import { useDispatch } from "react-redux";
 import useAxios from "./useAxios";
+import { toastSuccess, toastError } from "../helper/ToastNotify";
 
 
 
@@ -21,9 +22,11 @@ const useStock = () => {
     try {
       await axiosWithToken.post(`/stock/${stockName}/`, newFirm);
       getStocks(stockName)
+      toastSuccess(`${stockName} has been succesfully added.`);
     } catch (error) {
       console.log(error);
       dispatch(fetchFail());
+      toastError(`${stockName} could not been added.`);
     }
   };
   const getStocks = async (stockName) => {

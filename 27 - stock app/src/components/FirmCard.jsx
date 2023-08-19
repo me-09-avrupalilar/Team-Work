@@ -14,6 +14,7 @@ export default function FirmCard({ firm, setOpen, setEditFirm }) {
   // Firms.jsx     FirmCard.jsx       FirmModel.jsx
 
   const { deleteStocks, editStocks } = useStock();
+  console.log(firm)
   return (
     <Card
       sx={{

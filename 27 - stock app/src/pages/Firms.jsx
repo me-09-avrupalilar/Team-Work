@@ -22,11 +22,6 @@ const Firms = () => {
      address: "",
    });
 
-
-
-    
-
-
     useEffect(() => {
          getStocks("firms");
     }, [])

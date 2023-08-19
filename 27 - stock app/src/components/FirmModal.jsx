@@ -28,7 +28,7 @@ export default function FirmModal({ setOpen, open, editFirm, setEditFirm }) {
       address: "",
     });
   };
-  const { addStocks } = useStock();
+  const { addStocks, editStocks } = useStock();
 
   return (
     <div>
@@ -48,7 +48,9 @@ export default function FirmModal({ setOpen, open, editFirm, setEditFirm }) {
             }}
             onSubmit={(values, action) => {
               action.resetForm();
-              addStocks("firms", values);
+              editFirm.id
+                ? editStocks("firms", editFirm.id, values)
+                : addStocks("firms", values);
               handleClose();
             }}
           >

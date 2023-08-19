@@ -10,9 +10,10 @@ import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { buttonHover } from "/styles/buttonStyle";
 import useStock from "../hooks/useStock";
 
-export default function FirmCard({ firm }) {
+export default function FirmCard({ firm, setOpen, setEditFirm }) {
+  // Firms.jsx     FirmCard.jsx       FirmModel.jsx
 
-  const {deleteStocks, editStocks} = useStock();
+  const { deleteStocks, editStocks } = useStock();
   return (
     <Card
       sx={{
@@ -50,10 +51,19 @@ export default function FirmCard({ firm }) {
           justifyContent: "center",
         }}
       >
-        <EditIcon sx={buttonHover} />
-        <DeleteOutlineIcon sx={buttonHover} onClick={() => {
-          deleteStocks("firms", firm.id)
-        }}/>
+        <EditIcon
+          sx={buttonHover}
+          onClick={() => {
+            setEditFirm(firm);
+            setOpen(true);
+          }}
+        />
+        <DeleteOutlineIcon
+          sx={buttonHover}
+          onClick={() => {
+            deleteStocks("firms", firm.id);
+          }}
+        />
       </CardActions>
     </Card>
   );

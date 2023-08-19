@@ -18,10 +18,17 @@ const style = {
   p: 4,
 };
 
-export default function FirmModal({setOpen, open}) {
- 
-  const handleClose = () => setOpen(false);
-  const {addStocks} = useStock()
+export default function FirmModal({ setOpen, open, editFirm, setEditFirm }) {
+  const handleClose = () => {
+    setOpen(false);
+    setEditFirm({
+      name: "",
+      phone: "",
+      image: "",
+      address: "",
+    });
+  };
+  const { addStocks } = useStock();
 
   return (
     <div>
@@ -34,14 +41,14 @@ export default function FirmModal({setOpen, open}) {
         <Box sx={style}>
           <Formik
             initialValues={{
-              name: "",
-              phone: "",
-              image: "",
-              address: "",
+              name: editFirm.name,
+              phone: editFirm.phone,
+              image: editFirm.image,
+              address: editFirm.address,
             }}
             onSubmit={(values, action) => {
               action.resetForm();
-              addStocks("firms", values)
+              addStocks("firms", values);
               handleClose();
             }}
           >
@@ -90,18 +97,15 @@ export default function FirmModal({setOpen, open}) {
                   value={values.image}
                   required
                 />
-                
+
                 <Button
                   type="submit"
                   fullWidth
                   variant="contained"
                   sx={{ mt: 3, mb: 2 }}
-                
                 >
                   Sumbit Firm
                 </Button>
-
-                
               </Box>
             )}
           </Formik>

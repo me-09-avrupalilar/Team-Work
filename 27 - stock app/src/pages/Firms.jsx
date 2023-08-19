@@ -14,7 +14,14 @@ import FirmModal from '../components/FirmModal'
 const Firms = () => {
    
    const {getStocks} = useStock()
-    const [open, setOpen] = useState(false);
+   const [open, setOpen] = useState(false);
+   const [editFirm, setEditFirm] = useState({
+     name: "",
+     phone: "",
+     image: "",
+     address: "",
+   });
+
 
 
     
@@ -30,14 +37,23 @@ const Firms = () => {
       <Typography variant="h3" color="red">
         Firms
       </Typography>
-      <Button variant="contained" sx={{ backgroundColor: "darkblue" }} onClick={ () => setOpen(true)}>
+      <Button
+        variant="contained"
+        sx={{ backgroundColor: "darkblue" }}
+        onClick={() => setOpen(true)}
+      >
         Add Firm
       </Button>
-      <FirmModal setOpen={setOpen} open={open} />
+      <FirmModal
+        setOpen={setOpen}
+        open={open}
+        editFirm={editFirm}
+        setEditFirm={setEditFirm}
+      />
       <Grid container gap={5} mt={5}>
         {firms?.map((firm) => (
           <Grid key={firm.id}>
-            <FirmCard firm={firm} />
+            <FirmCard firm={firm} setOpen={setOpen} setEditFirm={setEditFirm} />
           </Grid>
         ))}
       </Grid>

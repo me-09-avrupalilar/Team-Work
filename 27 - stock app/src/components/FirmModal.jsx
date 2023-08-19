@@ -1,8 +1,10 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import {Formik} from "formik";
+import { TextField } from "@mui/material";
+import useStock from "../hooks/useStock";
 
 const style = {
   position: "absolute",
@@ -19,6 +21,7 @@ const style = {
 export default function FirmModal({setOpen, open}) {
  
   const handleClose = () => setOpen(false);
+  const {addStocks} = useStock()
 
   return (
     <div>
@@ -29,12 +32,79 @@ export default function FirmModal({setOpen, open}) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
+          <Formik
+            initialValues={{
+              name: "",
+              phone: "",
+              image: "",
+              address: "",
+            }}
+            onSubmit={(values, action) => {
+              action.resetForm();
+              addStocks("firms", values)
+              handleClose();
+            }}
+          >
+            {({ handleSubmit, handleChange, values }) => (
+              <Box component="Form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
+                <TextField
+                  margin="normal"
+                  fullWidth
+                  id="name"
+                  label="Firm Name"
+                  name="name"
+                  autoFocus
+                  onChange={handleChange}
+                  value={values.name}
+                  required
+                />
+                <TextField
+                  margin="normal"
+                  fullWidth
+                  id="address"
+                  label="Address"
+                  name="address"
+                  onChange={handleChange}
+                  value={values.address}
+                  required
+                />
+                <TextField
+                  margin="normal"
+                  fullWidth
+                  type="tel"
+                  id="phone"
+                  label="Phone"
+                  name="phone"
+                  onChange={handleChange}
+                  value={values.phone}
+                  required
+                />
+                <TextField
+                  margin="normal"
+                  fullWidth
+                  type="url"
+                  id="image"
+                  label="Image"
+                  name="image"
+                  onChange={handleChange}
+                  value={values.image}
+                  required
+                />
+                
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                
+                >
+                  Sumbit Firm
+                </Button>
+
+                
+              </Box>
+            )}
+          </Formik>
         </Box>
       </Modal>
     </div>

@@ -15,6 +15,17 @@ const useStock = () => {
 
   const { axiosWithToken } = useAxios();
 
+  const addStocks = async (stockName, newFirm) => {
+    
+    dispatch(fetchStart());
+    try {
+      await axiosWithToken.post(`/stock/${stockName}/`, newFirm);
+      getStocks(stockName)
+    } catch (error) {
+      console.log(error);
+      dispatch(fetchFail());
+    }
+  };
   const getStocks = async (stockName) => {
     dispatch(fetchStart());
     try {
@@ -52,7 +63,7 @@ const useStock = () => {
   // http://14184.fullstack.clarusway.com/stock/firms/{id}/
   //http://14184.fullstack.clarusway.com/stock/firms/{id}/
 
-  return { getStocks, deleteStocks, editStocks };
+  return { getStocks, deleteStocks, editStocks, addStocks };
 };
 
 export default useStock;

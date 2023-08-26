@@ -2,13 +2,19 @@ import React from "react";
 import StarRating from "./StarRating";
 
 const FilmInfo = ({ data }) => {
-  console.log(data);
+  // console.log(data)
+
+  // const filteredData = data.filter((item) => item.title === "Avatar");
+  // console.log(filteredData);
   return (
     <div>
-      {data.map((item) => {
+      {data.filter(  (item) =>item.id)
+      
+      
+      .map((item) => {
         const { id, title, body, tags, date, rate } = item;
         return (
-          <div>
+          <div key={id}>
             <h2>{title}</h2>
             <p>{body}</p>
             <p>{tags.join(", ")}</p>
@@ -16,9 +22,8 @@ const FilmInfo = ({ data }) => {
               {rate.toFixed(2)}
               {"/10"}
             </p>
-            <StarRating rate={rate}/>
+            <StarRating rate={rate} />
           </div>
-          
         );
       })}
     </div>

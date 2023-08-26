@@ -4,7 +4,10 @@ import { useState } from "react";
 import FilmInfo from "./FilmInfo";
 
 const FilmYear = ({ data }) => {
-  const handleClick = () => {};
+  const [year, setYear] = useState(true);
+  const handleClick = () => {
+    setYear(!year);
+  };
   // js alani
 
   return (
@@ -13,6 +16,7 @@ const FilmYear = ({ data }) => {
       {data.map((item) => {
         return (
           <button
+            key={item.id}
             onClick={handleClick}
             className="border-0 px-2 m-2 fs-4 fw-bold text-secondary"
           >
@@ -20,7 +24,7 @@ const FilmYear = ({ data }) => {
           </button>
         );
       })}
-      <FilmInfo data={data} />
+      {year ? <FilmInfo data={data} /> : year}
     </div>
   );
 };
